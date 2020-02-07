@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Apache Aurora</title>
+	<title>Aurora Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="/assets/css/main.css" rel="stylesheet">
 	<!-- Analytics -->
@@ -24,7 +24,7 @@
     <div class="container-fluid section-header">
   <div class="container">
     <div class="nav nav-bar">
-    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Apache Aurora logo with dark background"/></a>
+    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Aurora Scheduler logo with dark background"/></a>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/documentation/latest/">Documentation</a></li>
       <li><a href="/community/">Community</a></li>
@@ -37,94 +37,7 @@
 	
     <div class="container-fluid">
       <div class="container content">
-        <div class="col-md-12 documentation">
-<h5 class="page-header text-uppercase">Documentation
-<select onChange="window.location.href='/documentation/' + this.value + '/operations/security/'"
-        value="0.14.0">
-  <option value="0.22.0"
-    >
-    0.22.0
-      (latest)
-  </option>
-  <option value="0.21.0"
-    >
-    0.21.0
-  </option>
-  <option value="0.20.0"
-    >
-    0.20.0
-  </option>
-  <option value="0.19.1"
-    >
-    0.19.1
-  </option>
-  <option value="0.19.0"
-    >
-    0.19.0
-  </option>
-  <option value="0.18.1"
-    >
-    0.18.1
-  </option>
-  <option value="0.18.0"
-    >
-    0.18.0
-  </option>
-  <option value="0.17.0"
-    >
-    0.17.0
-  </option>
-  <option value="0.16.0"
-    >
-    0.16.0
-  </option>
-  <option value="0.15.0"
-    >
-    0.15.0
-  </option>
-  <option value="0.14.0"
-    selected="selected">
-    0.14.0
-  </option>
-  <option value="0.13.0"
-    >
-    0.13.0
-  </option>
-  <option value="0.12.0"
-    >
-    0.12.0
-  </option>
-  <option value="0.11.0"
-    >
-    0.11.0
-  </option>
-  <option value="0.10.0"
-    >
-    0.10.0
-  </option>
-  <option value="0.9.0"
-    >
-    0.9.0
-  </option>
-  <option value="0.8.0"
-    >
-    0.8.0
-  </option>
-  <option value="0.7.0-incubating"
-    >
-    0.7.0-incubating
-  </option>
-  <option value="0.6.0-incubating"
-    >
-    0.6.0-incubating
-  </option>
-  <option value="0.5.0-incubating"
-    >
-    0.5.0-incubating
-  </option>
-</select>
-</h5>
-<h1 id="securing-your-aurora-cluster">Securing your Aurora Cluster</h1>
+        <h1 id="securing-your-aurora-cluster">Securing your Aurora Cluster</h1>
 
 <p>Aurora integrates with <a href="http://shiro.apache.org/">Apache Shiro</a> to provide security
 controls for its API. In addition to providing some useful features out of the box, Shiro
@@ -371,24 +284,24 @@ for more information.</p>
 <h2 id="packaging-a-realm-module">Packaging a realm module</h2>
 
 <p>Package your custom Realm(s) with a Guice module that exposes a <code>Set&lt;Realm&gt;</code> multibinding.</p>
-<pre class="highlight java"><code><span style="color: #000000;font-weight: bold">package</span> <span style="background-color: #f8f8f8">com</span><span style="color: #000000;font-weight: bold">.</span><span style="color: #008080">example</span><span style="color: #000000;font-weight: bold">;</span>
+<pre class="highlight java"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">;</span>
 
-<span style="color: #000000;font-weight: bold">import</span> <span style="color: #555555">com.google.inject.AbstractModule</span><span style="color: #000000;font-weight: bold">;</span>
-<span style="color: #000000;font-weight: bold">import</span> <span style="color: #555555">com.google.inject.multibindings.Multibinder</span><span style="color: #000000;font-weight: bold">;</span>
-<span style="color: #000000;font-weight: bold">import</span> <span style="color: #555555">org.apache.shiro.realm.Realm</span><span style="color: #000000;font-weight: bold">;</span>
+<span class="kn">import</span> <span class="nn">com.google.inject.AbstractModule</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.inject.multibindings.Multibinder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.realm.Realm</span><span class="o">;</span>
 
-<span style="color: #000000;font-weight: bold">public</span> <span style="color: #000000;font-weight: bold">class</span> <span style="color: #445588;font-weight: bold">MyRealmModule</span> <span style="color: #000000;font-weight: bold">extends</span> <span style="background-color: #f8f8f8">AbstractModule</span> <span style="color: #000000;font-weight: bold">{</span>
-  <span style="color: #3c5d5d;font-weight: bold">@Override</span>
-  <span style="color: #000000;font-weight: bold">public</span> <span style="color: #445588;font-weight: bold">void</span> <span style="background-color: #f8f8f8">configure</span><span style="color: #000000;font-weight: bold">()</span> <span style="color: #000000;font-weight: bold">{</span>
-    <span style="background-color: #f8f8f8">Realm</span> <span style="background-color: #f8f8f8">myRealm</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #000000;font-weight: bold">new</span> <span style="background-color: #f8f8f8">MyRealm</span><span style="color: #000000;font-weight: bold">();</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyRealmModule</span> <span class="kd">extends</span> <span class="n">AbstractModule</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="n">configure</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Realm</span> <span class="n">myRealm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyRealm</span><span class="o">();</span>
 
-    <span style="background-color: #f8f8f8">Multibinder</span><span style="color: #000000;font-weight: bold">.</span><span style="color: #008080">newSetBinder</span><span style="color: #000000;font-weight: bold">(</span><span style="background-color: #f8f8f8">binder</span><span style="color: #000000;font-weight: bold">(),</span> <span style="background-color: #f8f8f8">Realm</span><span style="color: #000000;font-weight: bold">.</span><span style="color: #008080">class</span><span style="color: #000000;font-weight: bold">).</span><span style="color: #008080">addBinding</span><span style="color: #000000;font-weight: bold">().</span><span style="color: #008080">toInstance</span><span style="color: #000000;font-weight: bold">(</span><span style="background-color: #f8f8f8">myRealm</span><span style="color: #000000;font-weight: bold">);</span>
-  <span style="color: #000000;font-weight: bold">}</span>
+    <span class="n">Multibinder</span><span class="o">.</span><span class="na">newSetBinder</span><span class="o">(</span><span class="n">binder</span><span class="o">(),</span> <span class="n">Realm</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">addBinding</span><span class="o">().</span><span class="na">toInstance</span><span class="o">(</span><span class="n">myRealm</span><span class="o">);</span>
+  <span class="o">}</span>
 
-  <span style="color: #000000;font-weight: bold">static</span> <span style="color: #000000;font-weight: bold">class</span> <span style="color: #445588;font-weight: bold">MyRealm</span> <span style="color: #000000;font-weight: bold">implements</span> <span style="background-color: #f8f8f8">Realm</span> <span style="color: #000000;font-weight: bold">{</span>
-    <span style="color: #999988;font-style: italic">// Realm implementation.</span>
-  <span style="color: #000000;font-weight: bold">}</span>
-<span style="color: #000000;font-weight: bold">}</span>
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">MyRealm</span> <span class="kd">implements</span> <span class="n">Realm</span> <span class="o">{</span>
+    <span class="c1">// Realm implementation.</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 
 <p>To use your module in the scheduler, include it as a realm module based on its fully-qualified
@@ -425,27 +338,27 @@ limit access.</p>
 <h2 id="zookeeper-authentication-configuration">ZooKeeper Authentication Configuration</h2>
 
 <p>The configuration file must be formatted as JSON with the following schema:</p>
-<pre class="highlight json"><code><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-  </span><span style="color: #000080">"auth"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">[</span><span style="color: #bbbbbb">
-    </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-      </span><span style="color: #000080">"scheme"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"&lt;scheme&gt;"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-      </span><span style="color: #000080">"credential"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"&lt;plain_credential&gt;"</span><span style="color: #bbbbbb">
-    </span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
-  </span><span style="background-color: #f8f8f8">],</span><span style="color: #bbbbbb">
-  </span><span style="color: #000080">"acl"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">[</span><span style="color: #bbbbbb">
-    </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-      </span><span style="color: #000080">"scheme"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"&lt;scheme&gt;"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-      </span><span style="color: #000080">"credential"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"&lt;plain_credential&gt;"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-      </span><span style="color: #000080">"permissions"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-        </span><span style="color: #000080">"read"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #a61717;background-color: #e3d2d2">&lt;bool&gt;</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-        </span><span style="color: #000080">"write"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #a61717;background-color: #e3d2d2">&lt;bool&gt;</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-        </span><span style="color: #000080">"create"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #a61717;background-color: #e3d2d2">&lt;bool&gt;</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-        </span><span style="color: #000080">"delete"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #a61717;background-color: #e3d2d2">&lt;bool&gt;</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-        </span><span style="color: #000080">"admin"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #a61717;background-color: #e3d2d2">&lt;bool&gt;</span><span style="color: #bbbbbb">
-      </span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
-    </span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
-  </span><span style="background-color: #f8f8f8">]</span><span style="color: #bbbbbb">
-</span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"auth"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;scheme&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credential"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;plain_credential&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"acl"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;scheme&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credential"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;plain_credential&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"read"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"write"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"create"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"delete"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"admin"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bool&gt;</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>The <code>scheme</code>
@@ -461,8 +374,6 @@ authentication credentials must be provided in <code>auth</code> to use for the 
 <p>To enable the executor to authenticate against ZK, <code>--announcer-zookeeper-auth-config</code> should be
 set to the configuration file.</p>
 
-</div>
-
       </div>
     </div>
   	<div class="container-fluid section-footer buffer">
@@ -471,21 +382,12 @@ set to the configuration file.</p>
 		  <div class="col-md-2 col-md-offset-1"><h3>Quick Links</h3>
 		  <ul>
 		    <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/community/">Mailing Lists</a></li>
-			<li><a href="http://issues.apache.org/jira/browse/AURORA">Issue Tracking</a></li>
+			<li><a href="https://github.com/aurora-scheduler/aurora/issues">Issue Tracking</a></li>
 			<li><a href="/documentation/latest/contributing/">How To Contribute</a></li>     
 		  </ul>
 	      </div>
-		  <div class="col-md-2"><h3>The ASF</h3>
-          <ul>
-            <li><a href="http://www.apache.org/licenses/">License</a></li>
-            <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>  
-            <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            <li><a href="http://www.apache.org/security/">Security</a></li>
-          </ul>
-		  </div>
 		  <div class="col-md-6">
-			<p class="disclaimer">&copy; 2014-2017 <a href="http://www.apache.org/">Apache Software Foundation</a>. Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>. Apache, Apache Aurora, and the Apache feather logo are trademarks of The Apache Software Foundation.</p>
+			<p class="disclaimer">Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>.</p>
         </div>
       </div>
     </div>

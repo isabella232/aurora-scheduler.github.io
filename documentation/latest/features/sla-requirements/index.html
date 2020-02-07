@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Apache Aurora</title>
+	<title>Aurora Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="/assets/css/main.css" rel="stylesheet">
 	<!-- Analytics -->
@@ -24,7 +24,7 @@
     <div class="container-fluid section-header">
   <div class="container">
     <div class="nav nav-bar">
-    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Apache Aurora logo with dark background"/></a>
+    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Aurora Scheduler logo with dark background"/></a>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/documentation/latest/">Documentation</a></li>
       <li><a href="/community/">Community</a></li>
@@ -37,94 +37,7 @@
 	
     <div class="container-fluid">
       <div class="container content">
-        <div class="col-md-12 documentation">
-<h5 class="page-header text-uppercase">Documentation
-<select onChange="window.location.href='/documentation/' + this.value + '/features/sla-requirements/'"
-        value="latest">
-  <option value="0.22.0"
-    >
-    0.22.0
-      (latest)
-  </option>
-  <option value="0.21.0"
-    >
-    0.21.0
-  </option>
-  <option value="0.20.0"
-    >
-    0.20.0
-  </option>
-  <option value="0.19.1"
-    >
-    0.19.1
-  </option>
-  <option value="0.19.0"
-    >
-    0.19.0
-  </option>
-  <option value="0.18.1"
-    >
-    0.18.1
-  </option>
-  <option value="0.18.0"
-    >
-    0.18.0
-  </option>
-  <option value="0.17.0"
-    >
-    0.17.0
-  </option>
-  <option value="0.16.0"
-    >
-    0.16.0
-  </option>
-  <option value="0.15.0"
-    >
-    0.15.0
-  </option>
-  <option value="0.14.0"
-    >
-    0.14.0
-  </option>
-  <option value="0.13.0"
-    >
-    0.13.0
-  </option>
-  <option value="0.12.0"
-    >
-    0.12.0
-  </option>
-  <option value="0.11.0"
-    >
-    0.11.0
-  </option>
-  <option value="0.10.0"
-    >
-    0.10.0
-  </option>
-  <option value="0.9.0"
-    >
-    0.9.0
-  </option>
-  <option value="0.8.0"
-    >
-    0.8.0
-  </option>
-  <option value="0.7.0-incubating"
-    >
-    0.7.0-incubating
-  </option>
-  <option value="0.6.0-incubating"
-    >
-    0.6.0-incubating
-  </option>
-  <option value="0.5.0-incubating"
-    >
-    0.5.0-incubating
-  </option>
-</select>
-</h5>
-<h1 id="sla-requirements">SLA Requirements</h1>
+        <h1 id="sla-requirements">SLA Requirements</h1>
 
 <ul>
 <li><a href="#overview">Overview</a></li>
@@ -178,16 +91,16 @@ tasks that are <code>RUNNING</code> for at least <code>duration_secs</code>). Fo
 <code>replicated-service</code> that has 3 instances and needs at least 2 instances every 30 minutes to be
 treated healthy, the SLA requirement can be expressed with a
 <a href="../../reference/configuration/#countslapolicy-objects"><code>CountSlaPolicy</code></a> like below,</p>
-<pre class="highlight python"><code><span style="background-color: #f8f8f8">Job</span><span style="background-color: #f8f8f8">(</span>
-  <span style="background-color: #f8f8f8">name</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'replicated-service'</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">role</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'www-data'</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">instances</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #009999">3</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">sla_policy</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">CountSlaPolicy</span><span style="background-color: #f8f8f8">(</span>
-    <span style="background-color: #f8f8f8">count</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #009999">2</span><span style="background-color: #f8f8f8">,</span>
-    <span style="background-color: #f8f8f8">duration_secs</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #009999">1800</span>
-  <span style="background-color: #f8f8f8">)</span>
-  <span style="color: #000000;font-weight: bold">...</span>
-<span style="background-color: #f8f8f8">)</span>
+<pre class="highlight python"><code><span class="n">Job</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">'replicated-service'</span><span class="p">,</span>
+  <span class="n">role</span> <span class="o">=</span> <span class="s">'www-data'</span><span class="p">,</span>
+  <span class="n">instances</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="n">sla_policy</span> <span class="o">=</span> <span class="n">CountSlaPolicy</span><span class="p">(</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">duration_secs</span> <span class="o">=</span> <span class="mi">1800</span>
+  <span class="p">)</span>
+  <span class="o">...</span>
+<span class="p">)</span>
 </code></pre>
 
 <h3 id="percentage-based"><a href="../../reference/configuration/#percentageslapolicy-objects">Percentage-based</a></h3>
@@ -199,16 +112,16 @@ that are <code>RUNNING</code> for at least <code>duration_secs</code>). For inst
 has 10000 instances for handling peak load and cannot have more than 0.1% of the instances down
 for every 1 hr, the SLA requirement can be expressed with a
 <a href="../../reference/configuration/#percentageslapolicy-objects"><code>PercentageSlaPolicy</code></a> like below,</p>
-<pre class="highlight python"><code><span style="background-color: #f8f8f8">Job</span><span style="background-color: #f8f8f8">(</span>
-  <span style="background-color: #f8f8f8">name</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'frontend-service'</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">role</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'www-data'</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">instances</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #009999">10000</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">sla_policy</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">PercentageSlaPolicy</span><span style="background-color: #f8f8f8">(</span>
-    <span style="background-color: #f8f8f8">percentage</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #009999">99.9</span><span style="background-color: #f8f8f8">,</span>
-    <span style="background-color: #f8f8f8">duration_secs</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #009999">3600</span>
-  <span style="background-color: #f8f8f8">)</span>
-  <span style="color: #000000;font-weight: bold">...</span>
-<span style="background-color: #f8f8f8">)</span>
+<pre class="highlight python"><code><span class="n">Job</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">'frontend-service'</span><span class="p">,</span>
+  <span class="n">role</span> <span class="o">=</span> <span class="s">'www-data'</span><span class="p">,</span>
+  <span class="n">instances</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span>
+  <span class="n">sla_policy</span> <span class="o">=</span> <span class="n">PercentageSlaPolicy</span><span class="p">(</span>
+    <span class="n">percentage</span> <span class="o">=</span> <span class="mf">99.9</span><span class="p">,</span>
+    <span class="n">duration_secs</span> <span class="o">=</span> <span class="mi">3600</span>
+  <span class="p">)</span>
+  <span class="o">...</span>
+<span class="p">)</span>
 </code></pre>
 
 <h3 id="coordinator-based"><a href="../../reference/configuration/#coordinatorslapolicy-objects">Coordinator-based</a></h3>
@@ -231,15 +144,15 @@ the SLA guarantees required for the job.</p>
 <a href="../../reference/configuration/#coordinatorslapolicy-objects"><code>CoordinatorSlaPolicy</code></a> to specify the
 coordinator endpoint and the field in the response JSON that indicates if the SLA will be affected
 or not affected, when the task is removed.</p>
-<pre class="highlight python"><code><span style="background-color: #f8f8f8">Job</span><span style="background-color: #f8f8f8">(</span>
-  <span style="background-color: #f8f8f8">name</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'storage-service'</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">role</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'www-data'</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">sla_policy</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">CoordinatorSlaPolicy</span><span style="background-color: #f8f8f8">(</span>
-    <span style="background-color: #f8f8f8">coordinator_url</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'http://coordinator.example.com'</span><span style="background-color: #f8f8f8">,</span>
-    <span style="background-color: #f8f8f8">status_key</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'drain'</span>
-  <span style="background-color: #f8f8f8">)</span>
-  <span style="color: #000000;font-weight: bold">...</span>
-<span style="background-color: #f8f8f8">)</span>
+<pre class="highlight python"><code><span class="n">Job</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">'storage-service'</span><span class="p">,</span>
+  <span class="n">role</span> <span class="o">=</span> <span class="s">'www-data'</span><span class="p">,</span>
+  <span class="n">sla_policy</span> <span class="o">=</span> <span class="n">CoordinatorSlaPolicy</span><span class="p">(</span>
+    <span class="n">coordinator_url</span> <span class="o">=</span> <span class="s">'http://coordinator.example.com'</span><span class="p">,</span>
+    <span class="n">status_key</span> <span class="o">=</span> <span class="s">'drain'</span>
+  <span class="p">)</span>
+  <span class="o">...</span>
+<span class="p">)</span>
 </code></pre>
 
 <h4 id="coordinator-interface-experimental">Coordinator Interface [Experimental]</h4>
@@ -253,39 +166,39 @@ details, force maintenance countdown (ms) and other params and return a response
 contain the boolean status for allowing or disallowing the task&rsquo;s removal.</p>
 
 <h5 id="request">Request:</h5>
-<pre class="highlight javascript"><code><span style="background-color: #f8f8f8">POST</span> <span style="color: #000000;font-weight: bold">/</span>
-  <span style="background-color: #f8f8f8">?</span><span style="background-color: #f8f8f8">task</span><span style="color: #000000;font-weight: bold">=&lt;</span><span style="background-color: #f8f8f8">cluster</span><span style="color: #000000;font-weight: bold">&gt;</span><span style="color: #009926">/&lt;role&gt;/</span><span style="color: #000000;font-weight: bold">&lt;</span><span style="background-color: #f8f8f8">env</span><span style="color: #000000;font-weight: bold">&gt;</span><span style="color: #009926">/&lt;name&gt;/</span><span style="color: #000000;font-weight: bold">&lt;</span><span style="background-color: #f8f8f8">instance</span><span style="color: #000000;font-weight: bold">&gt;</span>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span>
+  <span class="p">?</span><span class="nx">task</span><span class="o">=&lt;</span><span class="nx">cluster</span><span class="o">&gt;</span><span class="sr">/&lt;role&gt;/</span><span class="o">&lt;</span><span class="nx">env</span><span class="o">&gt;</span><span class="sr">/&lt;name&gt;/</span><span class="o">&lt;</span><span class="nx">instance</span><span class="o">&gt;</span>
 
-<span style="background-color: #f8f8f8">{</span>
-  <span style="color: #d14">"forceMaintenanceCountdownMs"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"604755646"</span><span style="background-color: #f8f8f8">,</span>
-  <span style="color: #d14">"task"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"cluster/role/devel/job/1"</span><span style="background-color: #f8f8f8">,</span>
-  <span style="color: #d14">"taskConfig"</span><span style="background-color: #f8f8f8">:</span> <span style="background-color: #f8f8f8">{</span>
-    <span style="color: #d14">"assignedTask"</span><span style="background-color: #f8f8f8">:</span> <span style="background-color: #f8f8f8">{</span>
-      <span style="color: #d14">"taskId"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"taskA"</span><span style="background-color: #f8f8f8">,</span>
-      <span style="color: #d14">"slaveHost"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"a"</span><span style="background-color: #f8f8f8">,</span>
-      <span style="color: #d14">"task"</span><span style="background-color: #f8f8f8">:</span> <span style="background-color: #f8f8f8">{</span>
-        <span style="color: #d14">"job"</span><span style="background-color: #f8f8f8">:</span> <span style="background-color: #f8f8f8">{</span>
-          <span style="color: #d14">"role"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"role"</span><span style="background-color: #f8f8f8">,</span>
-          <span style="color: #d14">"environment"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"devel"</span><span style="background-color: #f8f8f8">,</span>
-          <span style="color: #d14">"name"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"job"</span>
-        <span style="background-color: #f8f8f8">},</span>
-        <span style="background-color: #f8f8f8">...</span>
-      <span style="background-color: #f8f8f8">},</span>
-      <span style="color: #d14">"assignedPorts"</span><span style="background-color: #f8f8f8">:</span> <span style="background-color: #f8f8f8">{</span>
-        <span style="color: #d14">"http"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #009999">1000</span>
-      <span style="background-color: #f8f8f8">},</span>
-      <span style="color: #d14">"instanceId"</span><span style="color: #a61717;background-color: #e3d2d2">:</span> <span style="color: #009999">1</span>
-      <span style="background-color: #f8f8f8">...</span>
-    <span style="background-color: #f8f8f8">},</span>
-    <span style="background-color: #f8f8f8">...</span>
-  <span style="background-color: #f8f8f8">}</span>
-<span style="background-color: #f8f8f8">}</span>
+<span class="p">{</span>
+  <span class="s2">"forceMaintenanceCountdownMs"</span><span class="p">:</span> <span class="s2">"604755646"</span><span class="p">,</span>
+  <span class="s2">"task"</span><span class="p">:</span> <span class="s2">"cluster/role/devel/job/1"</span><span class="p">,</span>
+  <span class="s2">"taskConfig"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"assignedTask"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"taskId"</span><span class="p">:</span> <span class="s2">"taskA"</span><span class="p">,</span>
+      <span class="s2">"slaveHost"</span><span class="p">:</span> <span class="s2">"a"</span><span class="p">,</span>
+      <span class="s2">"task"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"job"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"role"</span><span class="p">,</span>
+          <span class="s2">"environment"</span><span class="p">:</span> <span class="s2">"devel"</span><span class="p">,</span>
+          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"job"</span>
+        <span class="p">},</span>
+        <span class="p">...</span>
+      <span class="p">},</span>
+      <span class="s2">"assignedPorts"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"http"</span><span class="p">:</span> <span class="mi">1000</span>
+      <span class="p">},</span>
+      <span class="s2">"instanceId"</span><span class="err">:</span> <span class="mi">1</span>
+      <span class="p">...</span>
+    <span class="p">},</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 
 <h5 id="response">Response:</h5>
-<pre class="highlight json"><code><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-  </span><span style="color: #000080">"drain"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #000000;font-weight: bold">true</span><span style="color: #bbbbbb">
-</span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"drain"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>If Coordinator allows removal of the task, then the task’s
@@ -305,8 +218,6 @@ maintenance can be done in parallel across all the coordinators.</p>
 guarantee. The coordinator must be able to handle duplicate drain
 requests for the same task.</em></p>
 
-</div>
-
       </div>
     </div>
   	<div class="container-fluid section-footer buffer">
@@ -315,21 +226,12 @@ requests for the same task.</em></p>
 		  <div class="col-md-2 col-md-offset-1"><h3>Quick Links</h3>
 		  <ul>
 		    <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/community/">Mailing Lists</a></li>
-			<li><a href="http://issues.apache.org/jira/browse/AURORA">Issue Tracking</a></li>
+			<li><a href="https://github.com/aurora-scheduler/aurora/issues">Issue Tracking</a></li>
 			<li><a href="/documentation/latest/contributing/">How To Contribute</a></li>     
 		  </ul>
 	      </div>
-		  <div class="col-md-2"><h3>The ASF</h3>
-          <ul>
-            <li><a href="http://www.apache.org/licenses/">License</a></li>
-            <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>  
-            <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            <li><a href="http://www.apache.org/security/">Security</a></li>
-          </ul>
-		  </div>
 		  <div class="col-md-6">
-			<p class="disclaimer">&copy; 2014-2017 <a href="http://www.apache.org/">Apache Software Foundation</a>. Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>. Apache, Apache Aurora, and the Apache feather logo are trademarks of The Apache Software Foundation.</p>
+			<p class="disclaimer">Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>.</p>
         </div>
       </div>
     </div>

@@ -1,12 +1,44 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Apache Aurora Blog</title>
-  <id>http://aurora.apache.org/blog</id>
-  <link href="http://aurora.apache.org/blog" />
-  <link href="http://aurora.apache.org/blog/feed.xml" rel="self"/>
-  <updated>2019-12-12T00:00:00+00:00</updated>
+  <title>Aurora Scheduler Blog</title>
+  <id>https://aurora-scheduler.github.io/blog</id>
+  <link href="https://aurora-scheduler.github.io/blog" />
+  <link href="https://aurora-scheduler.github.io/blog/feed.xml" rel="self"/>
+  <updated>2020-02-07T00:00:00+00:00</updated>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-22-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/official-fork/</id>
+    <link href="/blog/official-fork/" />
+    <title>
+      Official Fork
+    </title>
+    <updated>2020-02-07T00:00:00+00:00</updated>
+    <author>
+      <name>Renan DelValle</name>
+    </author>
+    <content type="html">
+      &lt;p&gt;Being an Apache project has been a wonderful experience. We&amp;rsquo;ve all learned a tremendous amount about how Open Source software works and how it should be run. The developers are inifinitely grateful for
+the foundations support throught the years.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, the time has come to say goodbye to the ASF as our project embarks on a new journey.&lt;/p&gt;
+
+&lt;p&gt;As of today, we are rebooring the project under a new name and outside of the Apache Software Foundation.&lt;/p&gt;
+
+&lt;p&gt;The project will now use the name Aurora Scheduler and our new home will be over at &lt;a href=&quot;https://github.com/aurora-scheduler&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Our new website will be &lt;a href=&quot;https://aurora-scheduler.github.io/blog/&quot;&gt;https://aurora-scheduler.github.io/blog/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We hope to make the transition as seamless as possible and we hope everyone will join us on this new journey we&amp;rsquo;re embarking on.&lt;/p&gt;
+
+&lt;p&gt;Note: You may still find references to older releases under our former name, Apache Aurora, as well as references to Apache and the Apache Software foundation as we transition to our new home. Please note that Apache, Apache Aurora, and the Apache feather logo are trademarks of The Apache Software Foundation. References to Apache will be removed wherever deemed inappropriate.&lt;/p&gt;
+
+&lt;h2 id=&quot;thanks&quot;&gt;Thanks&lt;/h2&gt;
+
+&lt;p&gt;We want to sincerely thank the ASF for the years of support. It has meant the world to this project and all the developers behind it.&lt;/p&gt;
+
+	</content>
+  </entry>
+  <entry>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-22-0-released/</id>
     <link href="/blog/aurora-0-22-0-released/" />
     <title>
       0.22.0 Released
@@ -84,7 +116,7 @@ when a Job is received by the scheduler. If no tier is provided, the default tie
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-21-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-21-0-released/</id>
     <link href="/blog/aurora-0-21-0-released/" />
     <title>
       0.21.0 Released
@@ -170,7 +202,7 @@ to skip the SLA computations on the admin client.&lt;/li&gt;
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-20-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-20-0-released/</id>
     <link href="/blog/aurora-0-20-0-released/" />
     <title>
       0.20.0 Released
@@ -242,7 +274,7 @@ since this will now be subsumed under custom &lt;code&gt;OfferSet&lt;/code&gt; i
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-19-1-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-19-1-released/</id>
     <link href="/blog/aurora-0-19-1-released/" />
     <title>
       0.19.1 Released
@@ -261,7 +293,7 @@ since this will now be subsumed under custom &lt;code&gt;OfferSet&lt;/code&gt; i
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-19-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-19-0-released/</id>
     <link href="/blog/aurora-0-19-0-released/" />
     <title>
       0.19.0 Released
@@ -351,7 +383,7 @@ used:
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-18-1-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-18-1-released/</id>
     <link href="/blog/aurora-0-18-1-released/" />
     <title>
       0.18.1 Released
@@ -371,7 +403,7 @@ update the Shiro library to version 1.2.5.&lt;/p&gt;
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-18-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-18-0-released/</id>
     <link href="/blog/aurora-0-18-0-released/" />
     <title>
       0.18.0 Released
@@ -465,7 +497,7 @@ please let us know on the &lt;a href=&quot;https://aurora.apache.org/community/&
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-17-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-17-0-released/</id>
     <link href="/blog/aurora-0-17-0-released/" />
     <title>
       0.17.0 Released
@@ -570,7 +602,7 @@ please let us know on the &lt;a href=&quot;https://aurora.apache.org/community/&
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-16-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-16-0-released/</id>
     <link href="/blog/aurora-0-16-0-released/" />
     <title>
       0.16.0 Released
@@ -677,7 +709,7 @@ please let us know on the &lt;a href=&quot;https://aurora.apache.org/community/&
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-15-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-15-0-released/</id>
     <link href="/blog/aurora-0-15-0-released/" />
     <title>
       0.15.0 Released
@@ -726,7 +758,7 @@ please let us know on the &lt;a href=&quot;https://aurora.apache.org/community/&
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-14-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-14-0-released/</id>
     <link href="/blog/aurora-0-14-0-released/" />
     <title>
       0.14.0 Released
@@ -824,7 +856,7 @@ community also holds weekly IRC meetings at 11AM Pacific every Monday that you a
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-13-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-13-0-released/</id>
     <link href="/blog/aurora-0-13-0-released/" />
     <title>
       0.13.0 Released
@@ -949,7 +981,7 @@ community also holds weekly IRC meetings at 11AM Pacific every Monday that you a
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-12-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-12-0-released/</id>
     <link href="/blog/aurora-0-12-0-released/" />
     <title>
       0.12.0 Released
@@ -1059,7 +1091,7 @@ community also holds weekly IRC meetings at 11AM Pacific every Monday that you a
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-11-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-11-0-released/</id>
     <link href="/blog/aurora-0-11-0-released/" />
     <title>
       0.11.0 Released
@@ -1135,7 +1167,7 @@ community also holds weekly IRC meetings at 11AM Pacific every Monday that you a
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-10-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-10-0-released/</id>
     <link href="/blog/aurora-0-10-0-released/" />
     <title>
       0.10.0 Released
@@ -1197,7 +1229,7 @@ replaced by &lt;a href=&quot;/documentation/0.10.0/security/&quot;&gt;security f
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-at-mesoscon-seattle/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-at-mesoscon-seattle/</id>
     <link href="/blog/aurora-at-mesoscon-seattle/" />
     <title>
       Recap: Aurora at MesosCon Seattle
@@ -1228,7 +1260,7 @@ replaced by &lt;a href=&quot;/documentation/0.10.0/security/&quot;&gt;security f
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-9-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-9-0-released/</id>
     <link href="/blog/aurora-0-9-0-released/" />
     <title>
       0.9.0 Released
@@ -1294,7 +1326,7 @@ be enabled via the scheduler command line. Metric names have changed from
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-8-0-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-8-0-released/</id>
     <link href="/blog/aurora-0-8-0-released/" />
     <title>
       0.8.0 Released
@@ -1378,7 +1410,7 @@ be enabled via the scheduler command line. Metric names have changed from
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/2015-upcoming-apache-aurora-meetups/</id>
+    <id>https://aurora-scheduler.github.io/blog/2015-upcoming-apache-aurora-meetups/</id>
     <link href="/blog/2015-upcoming-apache-aurora-meetups/" />
     <title>
       Upcoming Apache Aurora Meetups in NYC and the Bay Area
@@ -1420,7 +1452,7 @@ be enabled via the scheduler command line. Metric names have changed from
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-7-0-incubating-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-7-0-incubating-released/</id>
     <link href="/blog/aurora-0-7-0-incubating-released/" />
     <title>
       0.7.0-incubating Released, Adding Support for Docker Containers
@@ -1488,7 +1520,7 @@ be enabled via the scheduler command line. Metric names have changed from
 	</content>
   </entry>
   <entry>
-    <id>http://aurora.apache.org/blog/aurora-0-6-0-incubating-released/</id>
+    <id>https://aurora-scheduler.github.io/blog/aurora-0-6-0-incubating-released/</id>
     <link href="/blog/aurora-0-6-0-incubating-released/" />
     <title>
       0.6.0-incubating Released

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Apache Aurora</title>
+	<title>Aurora Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="/assets/css/main.css" rel="stylesheet">
 	<!-- Analytics -->
@@ -24,7 +24,7 @@
     <div class="container-fluid section-header">
   <div class="container">
     <div class="nav nav-bar">
-    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Apache Aurora logo with dark background"/></a>
+    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Aurora Scheduler logo with dark background"/></a>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/documentation/latest/">Documentation</a></li>
       <li><a href="/community/">Community</a></li>
@@ -37,94 +37,7 @@
 	
     <div class="container-fluid">
       <div class="container content">
-        <div class="col-md-12 documentation">
-<h5 class="page-header text-uppercase">Documentation
-<select onChange="window.location.href='/documentation/' + this.value + '/features/custom-executors/'"
-        value="0.20.0">
-  <option value="0.22.0"
-    >
-    0.22.0
-      (latest)
-  </option>
-  <option value="0.21.0"
-    >
-    0.21.0
-  </option>
-  <option value="0.20.0"
-    selected="selected">
-    0.20.0
-  </option>
-  <option value="0.19.1"
-    >
-    0.19.1
-  </option>
-  <option value="0.19.0"
-    >
-    0.19.0
-  </option>
-  <option value="0.18.1"
-    >
-    0.18.1
-  </option>
-  <option value="0.18.0"
-    >
-    0.18.0
-  </option>
-  <option value="0.17.0"
-    >
-    0.17.0
-  </option>
-  <option value="0.16.0"
-    >
-    0.16.0
-  </option>
-  <option value="0.15.0"
-    >
-    0.15.0
-  </option>
-  <option value="0.14.0"
-    >
-    0.14.0
-  </option>
-  <option value="0.13.0"
-    >
-    0.13.0
-  </option>
-  <option value="0.12.0"
-    >
-    0.12.0
-  </option>
-  <option value="0.11.0"
-    >
-    0.11.0
-  </option>
-  <option value="0.10.0"
-    >
-    0.10.0
-  </option>
-  <option value="0.9.0"
-    >
-    0.9.0
-  </option>
-  <option value="0.8.0"
-    >
-    0.8.0
-  </option>
-  <option value="0.7.0-incubating"
-    >
-    0.7.0-incubating
-  </option>
-  <option value="0.6.0-incubating"
-    >
-    0.6.0-incubating
-  </option>
-  <option value="0.5.0-incubating"
-    >
-    0.5.0-incubating
-  </option>
-</select>
-</h5>
-<h1 id="custom-executors">Custom Executors</h1>
+        <h1 id="custom-executors">Custom Executors</h1>
 
 <p>If the need arises to use a Mesos executor other than the Thermos executor, the scheduler can be
 configured to utilize a custom executor by specifying the <code>-custom_executor_config</code> flag.
@@ -292,65 +205,65 @@ started.</p>
 </tbody></table>
 
 <p>A sample configuration is as follows:</p>
-<pre class="highlight json"><code><span style="background-color: #f8f8f8">[</span><span style="color: #bbbbbb">
-    </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-      </span><span style="color: #000080">"executor"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-        </span><span style="color: #000080">"name"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"myExecutor"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-        </span><span style="color: #000080">"command"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"value"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"myExecutor.a"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"shell"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"false"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"arguments"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">[</span><span style="color: #bbbbbb">
-            </span><span style="color: #d14">"localhost:2181"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-            </span><span style="color: #d14">"-verbose"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-            </span><span style="color: #d14">"-config myConfiguration.config"</span><span style="color: #bbbbbb">
-          </span><span style="background-color: #f8f8f8">],</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"uris"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">[</span><span style="color: #bbbbbb">
-            </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"value"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"/dist/myExecutor.a"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"executable"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #000000;font-weight: bold">true</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"extract"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #000000;font-weight: bold">false</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"cache"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #000000;font-weight: bold">true</span><span style="color: #bbbbbb">
-            </span><span style="background-color: #f8f8f8">},</span><span style="color: #bbbbbb">
-            </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"value"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"/home/user/myConfiguration.config"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"executable"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #000000;font-weight: bold">false</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"extract"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #000000;font-weight: bold">false</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"cache"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #000000;font-weight: bold">false</span><span style="color: #bbbbbb">
-            </span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
-          </span><span style="background-color: #f8f8f8">]</span><span style="color: #bbbbbb">
-        </span><span style="background-color: #f8f8f8">},</span><span style="color: #bbbbbb">
-        </span><span style="color: #000080">"resources"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">[</span><span style="color: #bbbbbb">
-          </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-            </span><span style="color: #000080">"name"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"cpus"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-            </span><span style="color: #000080">"type"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"SCALAR"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-            </span><span style="color: #000080">"scalar"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"value"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #009999">1.00</span><span style="color: #bbbbbb">
-            </span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
-          </span><span style="background-color: #f8f8f8">},</span><span style="color: #bbbbbb">
-          </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-            </span><span style="color: #000080">"name"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"mem"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-            </span><span style="color: #000080">"type"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"SCALAR"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-            </span><span style="color: #000080">"scalar"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-              </span><span style="color: #000080">"value"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #009999">512</span><span style="color: #bbbbbb">
-            </span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
-          </span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
-        </span><span style="background-color: #f8f8f8">]</span><span style="color: #bbbbbb">
-      </span><span style="background-color: #f8f8f8">},</span><span style="color: #bbbbbb">
-      </span><span style="color: #000080">"volume_mounts"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="background-color: #f8f8f8">[</span><span style="color: #bbbbbb">
-        </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"mode"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"RO"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"container_path"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"/path/on/container"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"host_path"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"/path/to/host/directory"</span><span style="color: #bbbbbb">
-        </span><span style="background-color: #f8f8f8">},</span><span style="color: #bbbbbb">
-        </span><span style="background-color: #f8f8f8">{</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"mode"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"RW"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"container_path"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"/container"</span><span style="background-color: #f8f8f8">,</span><span style="color: #bbbbbb">
-          </span><span style="color: #000080">"host_path"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"/host"</span><span style="color: #bbbbbb">
-        </span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
-      </span><span style="background-color: #f8f8f8">],</span><span style="color: #bbbbbb">
-      </span><span style="color: #000080">"task_prefix"</span><span style="background-color: #f8f8f8">:</span><span style="color: #bbbbbb"> </span><span style="color: #d14">"my-executor-"</span><span style="color: #bbbbbb">
-    </span><span style="background-color: #f8f8f8">}</span><span style="color: #bbbbbb">
-</span><span style="background-color: #f8f8f8">]</span><span style="color: #bbbbbb">
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"executor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myExecutor"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myExecutor.a"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"shell"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"arguments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"localhost:2181"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"-verbose"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"-config myConfiguration.config"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nt">"uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/dist/myExecutor.a"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"executable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"extract"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"cache"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/user/myConfiguration.config"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"executable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"extract"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"cache"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpus"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SCALAR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"scalar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mem"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SCALAR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"scalar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"volume_mounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"container_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/on/container"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"host_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/host/directory"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RW"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"container_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/container"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"host_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/host"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"task_prefix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-executor-"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 
 <p>It should be noted that if you do not use Thermos or a Thermos based executor, links in the scheduler&rsquo;s
@@ -377,8 +290,6 @@ the following manner:</p>
 
 <p>This will create a Service Job which will launch tasks using myExecutor instead of Thermos.</p>
 
-</div>
-
       </div>
     </div>
   	<div class="container-fluid section-footer buffer">
@@ -387,21 +298,12 @@ the following manner:</p>
 		  <div class="col-md-2 col-md-offset-1"><h3>Quick Links</h3>
 		  <ul>
 		    <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/community/">Mailing Lists</a></li>
-			<li><a href="http://issues.apache.org/jira/browse/AURORA">Issue Tracking</a></li>
+			<li><a href="https://github.com/aurora-scheduler/aurora/issues">Issue Tracking</a></li>
 			<li><a href="/documentation/latest/contributing/">How To Contribute</a></li>     
 		  </ul>
 	      </div>
-		  <div class="col-md-2"><h3>The ASF</h3>
-          <ul>
-            <li><a href="http://www.apache.org/licenses/">License</a></li>
-            <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>  
-            <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            <li><a href="http://www.apache.org/security/">Security</a></li>
-          </ul>
-		  </div>
 		  <div class="col-md-6">
-			<p class="disclaimer">&copy; 2014-2017 <a href="http://www.apache.org/">Apache Software Foundation</a>. Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>. Apache, Apache Aurora, and the Apache feather logo are trademarks of The Apache Software Foundation.</p>
+			<p class="disclaimer">Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>.</p>
         </div>
       </div>
     </div>

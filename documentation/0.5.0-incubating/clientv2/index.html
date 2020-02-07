@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Apache Aurora</title>
+	<title>Aurora Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="/assets/css/main.css" rel="stylesheet">
 	<!-- Analytics -->
@@ -24,7 +24,7 @@
     <div class="container-fluid section-header">
   <div class="container">
     <div class="nav nav-bar">
-    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Apache Aurora logo with dark background"/></a>
+    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Aurora Scheduler logo with dark background"/></a>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/documentation/latest/">Documentation</a></li>
       <li><a href="/community/">Community</a></li>
@@ -37,94 +37,7 @@
 	
     <div class="container-fluid">
       <div class="container content">
-        <div class="col-md-12 documentation">
-<h5 class="page-header text-uppercase">Documentation
-<select onChange="window.location.href='/documentation/' + this.value + '/clientv2/'"
-        value="0.5.0-incubating">
-  <option value="0.22.0"
-    >
-    0.22.0
-      (latest)
-  </option>
-  <option value="0.21.0"
-    >
-    0.21.0
-  </option>
-  <option value="0.20.0"
-    >
-    0.20.0
-  </option>
-  <option value="0.19.1"
-    >
-    0.19.1
-  </option>
-  <option value="0.19.0"
-    >
-    0.19.0
-  </option>
-  <option value="0.18.1"
-    >
-    0.18.1
-  </option>
-  <option value="0.18.0"
-    >
-    0.18.0
-  </option>
-  <option value="0.17.0"
-    >
-    0.17.0
-  </option>
-  <option value="0.16.0"
-    >
-    0.16.0
-  </option>
-  <option value="0.15.0"
-    >
-    0.15.0
-  </option>
-  <option value="0.14.0"
-    >
-    0.14.0
-  </option>
-  <option value="0.13.0"
-    >
-    0.13.0
-  </option>
-  <option value="0.12.0"
-    >
-    0.12.0
-  </option>
-  <option value="0.11.0"
-    >
-    0.11.0
-  </option>
-  <option value="0.10.0"
-    >
-    0.10.0
-  </option>
-  <option value="0.9.0"
-    >
-    0.9.0
-  </option>
-  <option value="0.8.0"
-    >
-    0.8.0
-  </option>
-  <option value="0.7.0-incubating"
-    >
-    0.7.0-incubating
-  </option>
-  <option value="0.6.0-incubating"
-    >
-    0.6.0-incubating
-  </option>
-  <option value="0.5.0-incubating"
-    selected="selected">
-    0.5.0-incubating
-  </option>
-</select>
-</h5>
-<h1 id="aurora-client-v2">Aurora Client v2</h1>
+        <h1 id="aurora-client-v2">Aurora Client v2</h1>
 
 <h2 id="overview">Overview</h2>
 
@@ -424,45 +337,45 @@ will be implemented as a subclass of a basic Noun type.</p>
 will be able to specify command-line options and parameters.</p>
 
 <p>Both <code>Noun</code> and <code>Verb</code> will be subclasses of a common base-class <code>AuroraCommand</code>:</p>
-<pre class="highlight objective_c"><code><span style="background-color: #f8f8f8">class</span> <span style="background-color: #f8f8f8">AuroraCommand</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">object</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-  <span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">get_options</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-  <span style="color: #d14">"""Gets the set of command-line options objects for this command.</span><span style="color: #a61717;background-color: #e3d2d2">
-</span><span style="color: #d14">  The result is a list of CommandOption objects.</span><span style="color: #a61717;background-color: #e3d2d2">
-</span><span style="color: #d14">   """</span>
-    <span style="background-color: #f8f8f8">pass</span>
+<pre class="highlight objective_c"><code><span class="n">class</span> <span class="n">AuroraCommand</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">def</span> <span class="n">get_options</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+  <span class="s">"""Gets the set of command-line options objects for this command.</span><span class="err">
+</span><span class="s">  The result is a list of CommandOption objects.</span><span class="err">
+</span><span class="s">   """</span>
+    <span class="n">pass</span>
 
-  <span style="color: #000000;font-weight: bold">@property</span>
-  <span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">help</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-    <span style="color: #d14">"""Returns the help message for this command"""</span>
+  <span class="k">@property</span>
+  <span class="n">def</span> <span class="n">help</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="s">"""Returns the help message for this command"""</span>
 
-  <span style="color: #000000;font-weight: bold">@property</span>
-  <span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">usage</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-    <span style="color: #d14">"""Returns a short usage description of the command"""</span>
+  <span class="k">@property</span>
+  <span class="n">def</span> <span class="n">usage</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="s">"""Returns a short usage description of the command"""</span>
 
-  <span style="color: #000000;font-weight: bold">@property</span>
-  <span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">name</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-    <span style="color: #d14">"""Returns the command name"""</span>
+  <span class="k">@property</span>
+  <span class="n">def</span> <span class="n">name</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="s">"""Returns the command name"""</span>
 </code></pre>
 
 <p>A command-line tool will be implemented as an instance of a <code>CommandLine</code>:</p>
-<pre class="highlight objective_c"><code><span style="background-color: #f8f8f8">class</span> <span style="background-color: #f8f8f8">CommandLine</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">object</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-  <span style="color: #d14">"""The top-level object implementing a command-line application."""</span>
+<pre class="highlight objective_c"><code><span class="n">class</span> <span class="n">CommandLine</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+  <span class="s">"""The top-level object implementing a command-line application."""</span>
 
-  <span style="color: #000000;font-weight: bold">@property</span>
-  <span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">name</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-    <span style="color: #d14">"""Returns the name of this command-line tool"""</span>
+  <span class="k">@property</span>
+  <span class="n">def</span> <span class="n">name</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="s">"""Returns the name of this command-line tool"""</span>
 
-  <span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">print_out</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">str</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-    <span style="background-color: #f8f8f8">print</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">str</span><span style="background-color: #f8f8f8">)</span>
+  <span class="n">def</span> <span class="n">print_out</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">str</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
 
-  <span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">print_err</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">str</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-    <span style="background-color: #f8f8f8">print</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">str</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">file</span><span style="color: #000000;font-weight: bold">=</span><span style="background-color: #f8f8f8">sys</span><span style="background-color: #f8f8f8">.</span><span style="background-color: #f8f8f8">stderr</span><span style="background-color: #f8f8f8">)</span>
+  <span class="n">def</span> <span class="n">print_err</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">str</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
 
-  <span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">register_noun</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">noun</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-    <span style="color: #d14">"""Adds a noun to the application"""</span>
+  <span class="n">def</span> <span class="n">register_noun</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">noun</span><span class="p">)</span><span class="o">:</span>
+    <span class="s">"""Adds a noun to the application"""</span>
 
-  <span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">register_plugin</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">plugin</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-     <span style="color: #d14">"""Adds a configuration plugin to the system"""</span>
+  <span class="n">def</span> <span class="n">register_plugin</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">plugin</span><span class="p">)</span><span class="o">:</span>
+     <span class="s">"""Adds a configuration plugin to the system"""</span>
 </code></pre>
 
 <p>Nouns are registered into a command-line using the <code>register_noun</code>
@@ -549,8 +462,6 @@ argparse library.</p>
 <p>Commands are expected to return a code from a list of standard exit codes,
 which can be found in <code>src/main/python/apache/aurora/client/cli/__init__.py</code>.</p>
 
-</div>
-
       </div>
     </div>
   	<div class="container-fluid section-footer buffer">
@@ -559,21 +470,12 @@ which can be found in <code>src/main/python/apache/aurora/client/cli/__init__.py
 		  <div class="col-md-2 col-md-offset-1"><h3>Quick Links</h3>
 		  <ul>
 		    <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/community/">Mailing Lists</a></li>
-			<li><a href="http://issues.apache.org/jira/browse/AURORA">Issue Tracking</a></li>
+			<li><a href="https://github.com/aurora-scheduler/aurora/issues">Issue Tracking</a></li>
 			<li><a href="/documentation/latest/contributing/">How To Contribute</a></li>     
 		  </ul>
 	      </div>
-		  <div class="col-md-2"><h3>The ASF</h3>
-          <ul>
-            <li><a href="http://www.apache.org/licenses/">License</a></li>
-            <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>  
-            <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            <li><a href="http://www.apache.org/security/">Security</a></li>
-          </ul>
-		  </div>
 		  <div class="col-md-6">
-			<p class="disclaimer">&copy; 2014-2017 <a href="http://www.apache.org/">Apache Software Foundation</a>. Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>. Apache, Apache Aurora, and the Apache feather logo are trademarks of The Apache Software Foundation.</p>
+			<p class="disclaimer">Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>.</p>
         </div>
       </div>
     </div>

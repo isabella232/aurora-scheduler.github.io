@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Apache Aurora</title>
+	<title>Aurora Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="/assets/css/main.css" rel="stylesheet">
 	<!-- Analytics -->
@@ -24,7 +24,7 @@
     <div class="container-fluid section-header">
   <div class="container">
     <div class="nav nav-bar">
-    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Apache Aurora logo with dark background"/></a>
+    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Aurora Scheduler logo with dark background"/></a>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/documentation/latest/">Documentation</a></li>
       <li><a href="/community/">Community</a></li>
@@ -37,94 +37,7 @@
 	
     <div class="container-fluid">
       <div class="container content">
-        <div class="col-md-12 documentation">
-<h5 class="page-header text-uppercase">Documentation
-<select onChange="window.location.href='/documentation/' + this.value + '/development/client/'"
-        value="0.18.1">
-  <option value="0.22.0"
-    >
-    0.22.0
-      (latest)
-  </option>
-  <option value="0.21.0"
-    >
-    0.21.0
-  </option>
-  <option value="0.20.0"
-    >
-    0.20.0
-  </option>
-  <option value="0.19.1"
-    >
-    0.19.1
-  </option>
-  <option value="0.19.0"
-    >
-    0.19.0
-  </option>
-  <option value="0.18.1"
-    selected="selected">
-    0.18.1
-  </option>
-  <option value="0.18.0"
-    >
-    0.18.0
-  </option>
-  <option value="0.17.0"
-    >
-    0.17.0
-  </option>
-  <option value="0.16.0"
-    >
-    0.16.0
-  </option>
-  <option value="0.15.0"
-    >
-    0.15.0
-  </option>
-  <option value="0.14.0"
-    >
-    0.14.0
-  </option>
-  <option value="0.13.0"
-    >
-    0.13.0
-  </option>
-  <option value="0.12.0"
-    >
-    0.12.0
-  </option>
-  <option value="0.11.0"
-    >
-    0.11.0
-  </option>
-  <option value="0.10.0"
-    >
-    0.10.0
-  </option>
-  <option value="0.9.0"
-    >
-    0.9.0
-  </option>
-  <option value="0.8.0"
-    >
-    0.8.0
-  </option>
-  <option value="0.7.0-incubating"
-    >
-    0.7.0-incubating
-  </option>
-  <option value="0.6.0-incubating"
-    >
-    0.6.0-incubating
-  </option>
-  <option value="0.5.0-incubating"
-    >
-    0.5.0-incubating
-  </option>
-</select>
-</h5>
-<h1 id="developing-the-aurora-client">Developing the Aurora Client</h1>
+        <h1 id="developing-the-aurora-client">Developing the Aurora Client</h1>
 
 <p>The client is written in Python, and uses the
 <a href="http://pantsbuild.github.io/python-readme.html">Pants</a> build tool.</p>
@@ -148,29 +61,29 @@ applicable to the open source codebase. Rather than create a whole CLI from scra
 easily create your own custom, drop-in replacement aurora.pex using the pants build tool.</p>
 
 <p>First, create an AuroraCommandLine implementation as an entry-point for registering customizations:</p>
-<pre class="highlight objective_c"><code><span style="background-color: #f8f8f8">from</span> <span style="background-color: #f8f8f8">apache</span><span style="background-color: #f8f8f8">.</span><span style="background-color: #f8f8f8">aurora</span><span style="background-color: #f8f8f8">.</span><span style="background-color: #f8f8f8">client</span><span style="background-color: #f8f8f8">.</span><span style="background-color: #f8f8f8">cli</span><span style="background-color: #f8f8f8">.</span><span style="background-color: #f8f8f8">client</span> <span style="background-color: #f8f8f8">import</span> <span style="background-color: #f8f8f8">AuroraCommandLine</span>
+<pre class="highlight objective_c"><code><span class="n">from</span> <span class="n">apache</span><span class="p">.</span><span class="n">aurora</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">cli</span><span class="p">.</span><span class="n">client</span> <span class="n">import</span> <span class="n">AuroraCommandLine</span>
 
-<span style="background-color: #f8f8f8">class</span> <span style="background-color: #f8f8f8">CustomAuroraCommandLine</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">AuroraCommandLine</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-<span style="color: #d14">"""Custom AuroraCommandLine for your needs"""</span>
+<span class="n">class</span> <span class="n">CustomAuroraCommandLine</span><span class="p">(</span><span class="n">AuroraCommandLine</span><span class="p">)</span><span class="o">:</span>
+<span class="s">"""Custom AuroraCommandLine for your needs"""</span>
 
-<span style="color: #000000;font-weight: bold">@property</span>
-<span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">name</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-  <span style="color: #000000;font-weight: bold">return</span> <span style="color: #d14">"your-company-aurora"</span>
+<span class="k">@property</span>
+<span class="n">def</span> <span class="n">name</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+  <span class="k">return</span> <span class="s">"your-company-aurora"</span>
 
-<span style="color: #a61717;background-color: #e3d2d2">@classmethod</span>
-<span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">get_description</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">cls</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-  <span style="color: #000000;font-weight: bold">return</span> <span style="color: #a61717;background-color: #e3d2d2">'</span><span style="background-color: #f8f8f8">Your</span> <span style="background-color: #f8f8f8">Company</span> <span style="background-color: #f8f8f8">internal</span> <span style="background-color: #f8f8f8">Aurora</span> <span style="background-color: #f8f8f8">client</span> <span style="background-color: #f8f8f8">command</span> <span style="background-color: #f8f8f8">line</span><span style="color: #a61717;background-color: #e3d2d2">'</span>
+<span class="err">@classmethod</span>
+<span class="n">def</span> <span class="n">get_description</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span><span class="o">:</span>
+  <span class="k">return</span> <span class="err">'</span><span class="n">Your</span> <span class="n">Company</span> <span class="n">internal</span> <span class="n">Aurora</span> <span class="n">client</span> <span class="n">command</span> <span class="n">line</span><span class="err">'</span>
 
-<span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">__init__</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-  <span style="background-color: #f8f8f8">super</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">CustomAuroraCommandLine</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">).</span><span style="background-color: #f8f8f8">__init__</span><span style="background-color: #f8f8f8">()</span>
-  <span style="color: #999999;font-weight: bold"># Add custom plugins..
-</span>  <span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">.</span><span style="background-color: #f8f8f8">register_plugin</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">YourCustomPlugin</span><span style="background-color: #f8f8f8">())</span>
+<span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">super</span><span class="p">(</span><span class="n">CustomAuroraCommandLine</span><span class="p">,</span> <span class="n">self</span><span class="p">).</span><span class="n">__init__</span><span class="p">()</span>
+  <span class="cp"># Add custom plugins..
+</span>  <span class="n">self</span><span class="p">.</span><span class="n">register_plugin</span><span class="p">(</span><span class="n">YourCustomPlugin</span><span class="p">())</span>
 
-<span style="background-color: #f8f8f8">def</span> <span style="background-color: #f8f8f8">register_nouns</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">:</span>
-  <span style="background-color: #f8f8f8">super</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">CustomAuroraCommandLine</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">).</span><span style="background-color: #f8f8f8">register_nouns</span><span style="background-color: #f8f8f8">()</span>
-  <span style="color: #999999;font-weight: bold"># You can even add new commands / sub-commands!
-</span>  <span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">.</span><span style="background-color: #f8f8f8">register_noun</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">YourStartUpdateProxy</span><span style="background-color: #f8f8f8">())</span>
-  <span style="background-color: #f8f8f8">self</span><span style="background-color: #f8f8f8">.</span><span style="background-color: #f8f8f8">register_noun</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">YourDeployWorkflowCommand</span><span style="background-color: #f8f8f8">())</span>
+<span class="n">def</span> <span class="n">register_nouns</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">super</span><span class="p">(</span><span class="n">CustomAuroraCommandLine</span><span class="p">,</span> <span class="n">self</span><span class="p">).</span><span class="n">register_nouns</span><span class="p">()</span>
+  <span class="cp"># You can even add new commands / sub-commands!
+</span>  <span class="n">self</span><span class="p">.</span><span class="n">register_noun</span><span class="p">(</span><span class="n">YourStartUpdateProxy</span><span class="p">())</span>
+  <span class="n">self</span><span class="p">.</span><span class="n">register_noun</span><span class="p">(</span><span class="n">YourDeployWorkflowCommand</span><span class="p">())</span>
 </code></pre>
 
 <p>Secondly, create a main entry point:</p>
@@ -271,8 +184,6 @@ is the directory where our example clusters.json is found).</li>
 <li>You should now be able to run and debug this configuration!</li>
 </ul>
 
-</div>
-
       </div>
     </div>
   	<div class="container-fluid section-footer buffer">
@@ -281,21 +192,12 @@ is the directory where our example clusters.json is found).</li>
 		  <div class="col-md-2 col-md-offset-1"><h3>Quick Links</h3>
 		  <ul>
 		    <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/community/">Mailing Lists</a></li>
-			<li><a href="http://issues.apache.org/jira/browse/AURORA">Issue Tracking</a></li>
+			<li><a href="https://github.com/aurora-scheduler/aurora/issues">Issue Tracking</a></li>
 			<li><a href="/documentation/latest/contributing/">How To Contribute</a></li>     
 		  </ul>
 	      </div>
-		  <div class="col-md-2"><h3>The ASF</h3>
-          <ul>
-            <li><a href="http://www.apache.org/licenses/">License</a></li>
-            <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>  
-            <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            <li><a href="http://www.apache.org/security/">Security</a></li>
-          </ul>
-		  </div>
 		  <div class="col-md-6">
-			<p class="disclaimer">&copy; 2014-2017 <a href="http://www.apache.org/">Apache Software Foundation</a>. Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>. Apache, Apache Aurora, and the Apache feather logo are trademarks of The Apache Software Foundation.</p>
+			<p class="disclaimer">Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>.</p>
         </div>
       </div>
     </div>

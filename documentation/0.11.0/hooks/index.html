@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Apache Aurora</title>
+	<title>Aurora Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="/assets/css/main.css" rel="stylesheet">
 	<!-- Analytics -->
@@ -24,7 +24,7 @@
     <div class="container-fluid section-header">
   <div class="container">
     <div class="nav nav-bar">
-    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Apache Aurora logo with dark background"/></a>
+    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Aurora Scheduler logo with dark background"/></a>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/documentation/latest/">Documentation</a></li>
       <li><a href="/community/">Community</a></li>
@@ -37,94 +37,7 @@
 	
     <div class="container-fluid">
       <div class="container content">
-        <div class="col-md-12 documentation">
-<h5 class="page-header text-uppercase">Documentation
-<select onChange="window.location.href='/documentation/' + this.value + '/hooks/'"
-        value="0.11.0">
-  <option value="0.22.0"
-    >
-    0.22.0
-      (latest)
-  </option>
-  <option value="0.21.0"
-    >
-    0.21.0
-  </option>
-  <option value="0.20.0"
-    >
-    0.20.0
-  </option>
-  <option value="0.19.1"
-    >
-    0.19.1
-  </option>
-  <option value="0.19.0"
-    >
-    0.19.0
-  </option>
-  <option value="0.18.1"
-    >
-    0.18.1
-  </option>
-  <option value="0.18.0"
-    >
-    0.18.0
-  </option>
-  <option value="0.17.0"
-    >
-    0.17.0
-  </option>
-  <option value="0.16.0"
-    >
-    0.16.0
-  </option>
-  <option value="0.15.0"
-    >
-    0.15.0
-  </option>
-  <option value="0.14.0"
-    >
-    0.14.0
-  </option>
-  <option value="0.13.0"
-    >
-    0.13.0
-  </option>
-  <option value="0.12.0"
-    >
-    0.12.0
-  </option>
-  <option value="0.11.0"
-    selected="selected">
-    0.11.0
-  </option>
-  <option value="0.10.0"
-    >
-    0.10.0
-  </option>
-  <option value="0.9.0"
-    >
-    0.9.0
-  </option>
-  <option value="0.8.0"
-    >
-    0.8.0
-  </option>
-  <option value="0.7.0-incubating"
-    >
-    0.7.0-incubating
-  </option>
-  <option value="0.6.0-incubating"
-    >
-    0.6.0-incubating
-  </option>
-  <option value="0.5.0-incubating"
-    >
-    0.5.0-incubating
-  </option>
-</select>
-</h5>
-<h1 id="hooks-for-aurora-client-api">Hooks for Aurora Client API</h1>
+        <h1 id="hooks-for-aurora-client-api">Hooks for Aurora Client API</h1>
 
 <ul>
 <li><a href="#introduction">Introduction</a></li>
@@ -166,17 +79,17 @@ return <code>False</code>. Designers/contributors of new <code>pre_</code> hooks
 consider whether or not to error-trap them. You can error trap at the
 highest level very generally and always pass the <code>pre_</code> hook by
 returning <code>True</code>. For example:</p>
-<pre class="highlight python"><code><span style="color: #000000;font-weight: bold">def</span> <span style="color: #990000;font-weight: bold">pre_create</span><span style="background-color: #f8f8f8">(</span><span style="color: #000000;font-weight: bold">...</span><span style="background-color: #f8f8f8">):</span>
-  <span style="background-color: #f8f8f8">do_something</span><span style="background-color: #f8f8f8">()</span>  <span style="color: #999988;font-style: italic"># if do_something fails with an exception, the create_job is not attempted!</span>
-  <span style="color: #000000;font-weight: bold">return</span> <span style="color: #999999">True</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">pre_create</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+  <span class="n">do_something</span><span class="p">()</span>  <span class="c"># if do_something fails with an exception, the create_job is not attempted!</span>
+  <span class="k">return</span> <span class="bp">True</span>
 
-<span style="color: #999988;font-style: italic"># However...</span>
-<span style="color: #000000;font-weight: bold">def</span> <span style="color: #990000;font-weight: bold">pre_create</span><span style="background-color: #f8f8f8">(</span><span style="color: #000000;font-weight: bold">...</span><span style="background-color: #f8f8f8">):</span>
-  <span style="color: #000000;font-weight: bold">try</span><span style="background-color: #f8f8f8">:</span>
-    <span style="background-color: #f8f8f8">do_something</span><span style="background-color: #f8f8f8">()</span>  <span style="color: #999988;font-style: italic"># may cause exception</span>
-  <span style="color: #000000;font-weight: bold">except</span> <span style="color: #0086B3">Exception</span><span style="background-color: #f8f8f8">:</span>  <span style="color: #999988;font-style: italic"># generic error trap will catch it</span>
-    <span style="color: #000000;font-weight: bold">pass</span>  <span style="color: #999988;font-style: italic"># and ignore the exception</span>
-  <span style="color: #000000;font-weight: bold">return</span> <span style="color: #999999">True</span>  <span style="color: #999988;font-style: italic"># create_job will run in any case!</span>
+<span class="c"># However...</span>
+<span class="k">def</span> <span class="nf">pre_create</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>  <span class="c"># may cause exception</span>
+  <span class="k">except</span> <span class="nb">Exception</span><span class="p">:</span>  <span class="c"># generic error trap will catch it</span>
+    <span class="k">pass</span>  <span class="c"># and ignore the exception</span>
+  <span class="k">return</span> <span class="bp">True</span>  <span class="c"># create_job will run in any case!</span>
 </code></pre>
 
 <p><code>post_&lt;method_name&gt;</code>: A <code>post_</code> hook executes after its associated method successfully finishes running. If it fails, the already executed method is unaffected. A <code>post_</code> hook&rsquo;s error is trapped, and any later operations are unaffected.</p>
@@ -276,12 +189,12 @@ returning <code>True</code>. For example:</p>
 <p>To summarize, to use hooks for a particular job, you must both activate hooks for your config file as a whole, and for that job. Activating hooks only for individual jobs won&rsquo;t work, nor will only activating hooks for your config file as a whole. You must also specify the hooks&rsquo; defining object in the <code>hooks</code> variable.</p>
 
 <p>Recall that <code>.aurora</code> config files are written in Pystachio. So the following turns on hooks for production jobs at cluster1 and cluster2, but leaves them off for similar jobs with a defined user role. Of course, you also need to list the objects that define the hooks in your config file&rsquo;s <code>hooks</code> variable.</p>
-<pre class="highlight python"><code><span style="background-color: #f8f8f8">jobs</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[</span>
-        <span style="background-color: #f8f8f8">Job</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">enable_hooks</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #999999">True</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">cluster</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">c</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">env</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'prod'</span><span style="background-color: #f8f8f8">)</span> <span style="color: #000000;font-weight: bold">for</span> <span style="background-color: #f8f8f8">c</span> <span style="color: #000000;font-weight: bold">in</span> <span style="background-color: #f8f8f8">(</span><span style="color: #d14">'cluster1'</span><span style="background-color: #f8f8f8">,</span> <span style="color: #d14">'cluster2'</span><span style="background-color: #f8f8f8">)</span>
-       <span style="background-color: #f8f8f8">]</span>
-<span style="background-color: #f8f8f8">jobs</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">extend</span><span style="background-color: #f8f8f8">(</span>
-   <span style="background-color: #f8f8f8">Job</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">cluster</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">c</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">env</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'prod'</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">role</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">getpass</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">getuser</span><span style="background-color: #f8f8f8">())</span> <span style="color: #000000;font-weight: bold">for</span> <span style="background-color: #f8f8f8">c</span> <span style="color: #000000;font-weight: bold">in</span> <span style="background-color: #f8f8f8">(</span><span style="color: #d14">'cluster1'</span><span style="background-color: #f8f8f8">,</span> <span style="color: #d14">'cluster2'</span><span style="background-color: #f8f8f8">))</span>
-   <span style="color: #999988;font-style: italic"># Hooks disabled for these jobs</span>
+<pre class="highlight python"><code><span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Job</span><span class="p">(</span><span class="n">enable_hooks</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">cluster</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">env</span> <span class="o">=</span> <span class="s">'prod'</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">(</span><span class="s">'cluster1'</span><span class="p">,</span> <span class="s">'cluster2'</span><span class="p">)</span>
+       <span class="p">]</span>
+<span class="n">jobs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+   <span class="n">Job</span><span class="p">(</span><span class="n">cluster</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">env</span> <span class="o">=</span> <span class="s">'prod'</span><span class="p">,</span> <span class="n">role</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">())</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">(</span><span class="s">'cluster1'</span><span class="p">,</span> <span class="s">'cluster2'</span><span class="p">))</span>
+   <span class="c"># Hooks disabled for these jobs</span>
 </code></pre>
 
 <h2 id="command-line">Command Line</h2>
@@ -301,15 +214,15 @@ returning <code>True</code>. For example:</p>
 <p>Note that you can define other methods in the class that its hook methods can call; all the logic of a hook does not have to be in its definition.</p>
 
 <p>The following example defines a class containing a <code>pre_kill_job</code> hook definition that calls another method defined in the class.</p>
-<pre class="highlight python"><code><span style="color: #999988;font-style: italic"># Defines a method pre_kill_job</span>
-<span style="color: #000000;font-weight: bold">class</span> <span style="color: #445588;font-weight: bold">KillConfirmer</span><span style="background-color: #f8f8f8">(</span><span style="color: #0086B3">object</span><span style="background-color: #f8f8f8">):</span>
-  <span style="color: #000000;font-weight: bold">def</span> <span style="color: #990000;font-weight: bold">confirm</span><span style="background-color: #f8f8f8">(</span><span style="color: #999999">self</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">msg</span><span style="background-color: #f8f8f8">):</span>
-    <span style="color: #000000;font-weight: bold">return</span> <span style="color: #0086B3">raw_input</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">msg</span><span style="background-color: #f8f8f8">)</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">lower</span><span style="background-color: #f8f8f8">()</span> <span style="color: #000000;font-weight: bold">==</span> <span style="color: #d14">'yes'</span>
+<pre class="highlight python"><code><span class="c"># Defines a method pre_kill_job</span>
+<span class="k">class</span> <span class="nc">KillConfirmer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">confirm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s">'yes'</span>
 
-  <span style="color: #000000;font-weight: bold">def</span> <span style="color: #990000;font-weight: bold">pre_kill_job</span><span style="background-color: #f8f8f8">(</span><span style="color: #999999">self</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">job_key</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">shards</span><span style="color: #000000;font-weight: bold">=</span><span style="color: #999999">None</span><span style="background-color: #f8f8f8">):</span>
-    <span style="background-color: #f8f8f8">shards</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">(</span><span style="color: #d14">'shards </span><span style="color: #d14">%</span><span style="color: #d14">s'</span> <span style="color: #000000;font-weight: bold">%</span> <span style="background-color: #f8f8f8">shards</span><span style="background-color: #f8f8f8">)</span> <span style="color: #000000;font-weight: bold">if</span> <span style="background-color: #f8f8f8">shards</span> <span style="color: #000000;font-weight: bold">is</span> <span style="color: #000000;font-weight: bold">not</span> <span style="color: #999999">None</span> <span style="color: #000000;font-weight: bold">else</span> <span style="color: #d14">'all shards'</span>
-    <span style="color: #000000;font-weight: bold">return</span> <span style="color: #999999">self</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">confirm</span><span style="background-color: #f8f8f8">(</span><span style="color: #d14">'Are you sure you want to kill </span><span style="color: #d14">%</span><span style="color: #d14">s (</span><span style="color: #d14">%</span><span style="color: #d14">s)? (yes/no): '</span>
-                        <span style="color: #000000;font-weight: bold">%</span> <span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">job_key</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">shards</span><span style="background-color: #f8f8f8">))</span>
+  <span class="k">def</span> <span class="nf">pre_kill_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_key</span><span class="p">,</span> <span class="n">shards</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">shards</span> <span class="o">=</span> <span class="p">(</span><span class="s">'shards </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">shards</span><span class="p">)</span> <span class="k">if</span> <span class="n">shards</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="s">'all shards'</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">confirm</span><span class="p">(</span><span class="s">'Are you sure you want to kill </span><span class="si">%</span><span class="s">s (</span><span class="si">%</span><span class="s">s)? (yes/no): '</span>
+                        <span class="o">%</span> <span class="p">(</span><span class="n">job_key</span><span class="p">,</span> <span class="n">shards</span><span class="p">))</span>
 </code></pre>
 
 <h3 id="pre_-methods">pre_ Methods</h3>
@@ -345,7 +258,7 @@ returning <code>True</code>. For example:</p>
 <h2 id="generic-hooks">Generic Hooks</h2>
 
 <p>There are seven Aurora API Methods which any of the three hook types can attach to. Thus, there are 21 possible hook/method combinations for a single <code>.aurora</code> config file. Say that you define <code>pre_</code> and <code>post_</code> hooks for the <code>restart</code> method. That leaves 19 undefined hook/method combinations; <code>err_restart</code> and the 3 <code>pre_</code>, <code>post_</code>, and <code>err_</code> hooks for each of the other 6 hookable methods. You can define what happens when any of these otherwise undefined 19 hooks execute via a generic hook, whose signature is:</p>
-<pre class="highlight python"><code><span style="background-color: #f8f8f8">generic_hook</span><span style="background-color: #f8f8f8">(</span><span style="color: #999999">self</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">hook_config</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">event</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">method_name</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">result_or_err</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">args</span><span style="color: #000000;font-weight: bold">*</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">kw</span><span style="color: #000000;font-weight: bold">**</span><span style="background-color: #f8f8f8">)</span>
+<pre class="highlight python"><code><span class="n">generic_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook_config</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">result_or_err</span><span class="p">,</span> <span class="n">args</span><span class="o">*</span><span class="p">,</span> <span class="n">kw</span><span class="o">**</span><span class="p">)</span>
 </code></pre>
 
 <p>where:</p>
@@ -365,13 +278,13 @@ returning <code>True</code>. For example:</p>
 </ul>
 
 <p>Example:</p>
-<pre class="highlight python"><code><span style="color: #999988;font-style: italic"># Overrides the standard do-nothing generic_hook by adding a log writing operation.</span>
-<span style="color: #000000;font-weight: bold">from</span> <span style="color: #555555">twitter.common</span> <span style="color: #000000;font-weight: bold">import</span> <span style="background-color: #f8f8f8">log</span>
-  <span style="color: #000000;font-weight: bold">class</span> <span style="color: #445588;font-weight: bold">Logger</span><span style="background-color: #f8f8f8">(</span><span style="color: #0086B3">object</span><span style="background-color: #f8f8f8">):</span>
-    <span style="color: #d14">'''Adds to the log every time a hookable API method is called'''</span>
-    <span style="color: #000000;font-weight: bold">def</span> <span style="color: #990000;font-weight: bold">generic_hook</span><span style="background-color: #f8f8f8">(</span><span style="color: #999999">self</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">hook_config</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">event</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">method_name</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">result_or_err</span><span style="background-color: #f8f8f8">,</span> <span style="color: #000000;font-weight: bold">*</span><span style="background-color: #f8f8f8">args</span><span style="background-color: #f8f8f8">,</span> <span style="color: #000000;font-weight: bold">**</span><span style="background-color: #f8f8f8">kw</span><span style="background-color: #f8f8f8">)</span>
-      <span style="background-color: #f8f8f8">log</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">info</span><span style="background-color: #f8f8f8">(</span><span style="color: #d14">'</span><span style="color: #d14">%</span><span style="color: #d14">s: </span><span style="color: #d14">%</span><span style="color: #d14">s_</span><span style="color: #d14">%</span><span style="color: #d14">s of </span><span style="color: #d14">%</span><span style="color: #d14">s'</span>
-               <span style="color: #000000;font-weight: bold">%</span> <span style="background-color: #f8f8f8">(</span><span style="color: #999999">self</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">__class__</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">__name__</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">event</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">method_name</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">hook_config</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">job_key</span><span style="background-color: #f8f8f8">))</span>
+<pre class="highlight python"><code><span class="c"># Overrides the standard do-nothing generic_hook by adding a log writing operation.</span>
+<span class="kn">from</span> <span class="nn">twitter.common</span> <span class="kn">import</span> <span class="n">log</span>
+  <span class="k">class</span> <span class="nc">Logger</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="s">'''Adds to the log every time a hookable API method is called'''</span>
+    <span class="k">def</span> <span class="nf">generic_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook_config</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">result_or_err</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+      <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s: </span><span class="si">%</span><span class="s">s_</span><span class="si">%</span><span class="s">s of </span><span class="si">%</span><span class="s">s'</span>
+               <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">hook_config</span><span class="o">.</span><span class="n">job_key</span><span class="p">))</span>
 </code></pre>
 
 <h2 id="hooks-process-checklist">Hooks Process Checklist</h2>
@@ -379,13 +292,13 @@ returning <code>True</code>. For example:</p>
 <ol>
 <li>In your <code>.aurora</code> config file, add a <code>hooks</code> variable. Note that you may want to define a <code>.aurora</code> file only for hook definitions and then include this file in multiple other config files that you want to use the same hooks.</li>
 </ol>
-<pre class="highlight python"><code><span style="background-color: #f8f8f8">hooks</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[]</span>
+<pre class="highlight python"><code><span class="n">hooks</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre>
 
 <ol>
 <li>In the <code>hooks</code> variable, list all objects that define hooks used by <code>Job</code>s defined in this config:</li>
 </ol>
-<pre class="highlight python"><code><span style="background-color: #f8f8f8">hooks</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[</span><span style="background-color: #f8f8f8">Object_hook_definer1</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">Object_hook_definer2</span><span style="background-color: #f8f8f8">]</span>
+<pre class="highlight python"><code><span class="n">hooks</span> <span class="o">=</span> <span class="p">[</span><span class="n">Object_hook_definer1</span><span class="p">,</span> <span class="n">Object_hook_definer2</span><span class="p">]</span>
 </code></pre>
 
 <ol>
@@ -395,8 +308,6 @@ returning <code>True</code>. For example:</p>
 <li><p>If your Aurora command line command does not otherwise take an <code>.aurora</code> config file argument, add the appropriate <code>.aurora</code> file as an argument in order to define and activate the configuration&rsquo;s hooks.</p></li>
 </ol>
 
-</div>
-
       </div>
     </div>
   	<div class="container-fluid section-footer buffer">
@@ -405,21 +316,12 @@ returning <code>True</code>. For example:</p>
 		  <div class="col-md-2 col-md-offset-1"><h3>Quick Links</h3>
 		  <ul>
 		    <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/community/">Mailing Lists</a></li>
-			<li><a href="http://issues.apache.org/jira/browse/AURORA">Issue Tracking</a></li>
+			<li><a href="https://github.com/aurora-scheduler/aurora/issues">Issue Tracking</a></li>
 			<li><a href="/documentation/latest/contributing/">How To Contribute</a></li>     
 		  </ul>
 	      </div>
-		  <div class="col-md-2"><h3>The ASF</h3>
-          <ul>
-            <li><a href="http://www.apache.org/licenses/">License</a></li>
-            <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>  
-            <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            <li><a href="http://www.apache.org/security/">Security</a></li>
-          </ul>
-		  </div>
 		  <div class="col-md-6">
-			<p class="disclaimer">&copy; 2014-2017 <a href="http://www.apache.org/">Apache Software Foundation</a>. Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>. Apache, Apache Aurora, and the Apache feather logo are trademarks of The Apache Software Foundation.</p>
+			<p class="disclaimer">Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>.</p>
         </div>
       </div>
     </div>

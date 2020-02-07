@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Apache Aurora</title>
+	<title>Aurora Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="/assets/css/main.css" rel="stylesheet">
 	<!-- Analytics -->
@@ -24,7 +24,7 @@
     <div class="container-fluid section-header">
   <div class="container">
     <div class="nav nav-bar">
-    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Apache Aurora logo with dark background"/></a>
+    <a href="/"><img src="/assets/img/aurora_logo_dkbkg.svg" width="300" alt="Transparent Aurora Scheduler logo with dark background"/></a>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/documentation/latest/">Documentation</a></li>
       <li><a href="/community/">Community</a></li>
@@ -37,94 +37,7 @@
 	
     <div class="container-fluid">
       <div class="container content">
-        <div class="col-md-12 documentation">
-<h5 class="page-header text-uppercase">Documentation
-<select onChange="window.location.href='/documentation/' + this.value + '/tutorial/'"
-        value="0.11.0">
-  <option value="0.22.0"
-    >
-    0.22.0
-      (latest)
-  </option>
-  <option value="0.21.0"
-    >
-    0.21.0
-  </option>
-  <option value="0.20.0"
-    >
-    0.20.0
-  </option>
-  <option value="0.19.1"
-    >
-    0.19.1
-  </option>
-  <option value="0.19.0"
-    >
-    0.19.0
-  </option>
-  <option value="0.18.1"
-    >
-    0.18.1
-  </option>
-  <option value="0.18.0"
-    >
-    0.18.0
-  </option>
-  <option value="0.17.0"
-    >
-    0.17.0
-  </option>
-  <option value="0.16.0"
-    >
-    0.16.0
-  </option>
-  <option value="0.15.0"
-    >
-    0.15.0
-  </option>
-  <option value="0.14.0"
-    >
-    0.14.0
-  </option>
-  <option value="0.13.0"
-    >
-    0.13.0
-  </option>
-  <option value="0.12.0"
-    >
-    0.12.0
-  </option>
-  <option value="0.11.0"
-    selected="selected">
-    0.11.0
-  </option>
-  <option value="0.10.0"
-    >
-    0.10.0
-  </option>
-  <option value="0.9.0"
-    >
-    0.9.0
-  </option>
-  <option value="0.8.0"
-    >
-    0.8.0
-  </option>
-  <option value="0.7.0-incubating"
-    >
-    0.7.0-incubating
-  </option>
-  <option value="0.6.0-incubating"
-    >
-    0.6.0-incubating
-  </option>
-  <option value="0.5.0-incubating"
-    >
-    0.5.0-incubating
-  </option>
-</select>
-</h5>
-<h2 id="aurora-tutorial">Aurora Tutorial</h2>
+        <h2 id="aurora-tutorial">Aurora Tutorial</h2>
 
 <ul>
 <li><a href="#introduction">Introduction</a></li>
@@ -174,20 +87,20 @@ this directory is the same as <code>/vagrant</code> inside the Vagrant VMs).</p>
 
 <!-- NOTE: If you are changing this file, be sure to also update examples/vagrant/test_tutorial.sh.
 -->
-<pre class="highlight python"><code><span style="color: #000000;font-weight: bold">import</span> <span style="color: #555555">sys</span>
-<span style="color: #000000;font-weight: bold">import</span> <span style="color: #555555">time</span>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-<span style="color: #000000;font-weight: bold">def</span> <span style="color: #990000;font-weight: bold">main</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">argv</span><span style="background-color: #f8f8f8">):</span>
-  <span style="background-color: #f8f8f8">SLEEP_DELAY</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #009999">10</span>
-  <span style="color: #999988;font-style: italic"># Python ninjas - ignore this blatant bug.</span>
-  <span style="color: #000000;font-weight: bold">for</span> <span style="background-color: #f8f8f8">i</span> <span style="color: #000000;font-weight: bold">in</span> <span style="background-color: #f8f8f8">xrang</span><span style="background-color: #f8f8f8">(</span><span style="color: #009999">100</span><span style="background-color: #f8f8f8">):</span>
-    <span style="color: #000000;font-weight: bold">print</span><span style="background-color: #f8f8f8">(</span><span style="color: #d14">"Hello world! The time is now: </span><span style="color: #d14">%</span><span style="color: #d14">s. Sleeping for </span><span style="color: #d14">%</span><span style="color: #d14">d secs"</span> <span style="color: #000000;font-weight: bold">%</span> <span style="background-color: #f8f8f8">(</span>
-      <span style="background-color: #f8f8f8">time</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">asctime</span><span style="background-color: #f8f8f8">(),</span> <span style="background-color: #f8f8f8">SLEEP_DELAY</span><span style="background-color: #f8f8f8">))</span>
-    <span style="background-color: #f8f8f8">sys</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">stdout</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">flush</span><span style="background-color: #f8f8f8">()</span>
-    <span style="background-color: #f8f8f8">time</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">sleep</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">SLEEP_DELAY</span><span style="background-color: #f8f8f8">)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">argv</span><span class="p">):</span>
+  <span class="n">SLEEP_DELAY</span> <span class="o">=</span> <span class="mi">10</span>
+  <span class="c"># Python ninjas - ignore this blatant bug.</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrang</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Hello world! The time is now: </span><span class="si">%</span><span class="s">s. Sleeping for </span><span class="si">%</span><span class="s">d secs"</span> <span class="o">%</span> <span class="p">(</span>
+      <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">(),</span> <span class="n">SLEEP_DELAY</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">SLEEP_DELAY</span><span class="p">)</span>
 
-<span style="color: #000000;font-weight: bold">if</span> <span style="background-color: #f8f8f8">__name__</span> <span style="color: #000000;font-weight: bold">==</span> <span style="color: #d14">"__main__"</span><span style="background-color: #f8f8f8">:</span>
-  <span style="background-color: #f8f8f8">main</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">sys</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">argv</span><span style="background-color: #f8f8f8">)</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+  <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 </code></pre>
 
 <h2 id="aurora-configuration">Aurora Configuration</h2>
@@ -198,37 +111,37 @@ code in the file <code>hello_world.aurora</code>.</p>
 
 <!-- NOTE: If you are changing this file, be sure to also update examples/vagrant/test_tutorial.sh.
 -->
-<pre class="highlight python"><code><span style="background-color: #f8f8f8">pkg_path</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'/vagrant/hello_world.py'</span>
+<pre class="highlight python"><code><span class="n">pkg_path</span> <span class="o">=</span> <span class="s">'/vagrant/hello_world.py'</span>
 
-<span style="color: #999988;font-style: italic"># we use a trick here to make the configuration change with</span>
-<span style="color: #999988;font-style: italic"># the contents of the file, for simplicity.  in a normal setting, packages would be</span>
-<span style="color: #999988;font-style: italic"># versioned, and the version number would be changed in the configuration.</span>
-<span style="color: #000000;font-weight: bold">import</span> <span style="color: #555555">hashlib</span>
-<span style="color: #000000;font-weight: bold">with</span> <span style="color: #0086B3">open</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">pkg_path</span><span style="background-color: #f8f8f8">,</span> <span style="color: #d14">'rb'</span><span style="background-color: #f8f8f8">)</span> <span style="color: #000000;font-weight: bold">as</span> <span style="background-color: #f8f8f8">f</span><span style="background-color: #f8f8f8">:</span>
-  <span style="background-color: #f8f8f8">pkg_checksum</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">hashlib</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">md5</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">f</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">read</span><span style="background-color: #f8f8f8">())</span><span style="color: #000000;font-weight: bold">.</span><span style="background-color: #f8f8f8">hexdigest</span><span style="background-color: #f8f8f8">()</span>
+<span class="c"># we use a trick here to make the configuration change with</span>
+<span class="c"># the contents of the file, for simplicity.  in a normal setting, packages would be</span>
+<span class="c"># versioned, and the version number would be changed in the configuration.</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pkg_path</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">pkg_checksum</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 
-<span style="color: #999988;font-style: italic"># copy hello_world.py into the local sandbox</span>
-<span style="background-color: #f8f8f8">install</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">Process</span><span style="background-color: #f8f8f8">(</span>
-  <span style="background-color: #f8f8f8">name</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'fetch_package'</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">cmdline</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'cp </span><span style="color: #d14">%</span><span style="color: #d14">s . &amp;&amp; echo </span><span style="color: #d14">%</span><span style="color: #d14">s &amp;&amp; chmod +x hello_world.py'</span> <span style="color: #000000;font-weight: bold">%</span> <span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">pkg_path</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">pkg_checksum</span><span style="background-color: #f8f8f8">))</span>
+<span class="c"># copy hello_world.py into the local sandbox</span>
+<span class="n">install</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">'fetch_package'</span><span class="p">,</span>
+  <span class="n">cmdline</span> <span class="o">=</span> <span class="s">'cp </span><span class="si">%</span><span class="s">s . &amp;&amp; echo </span><span class="si">%</span><span class="s">s &amp;&amp; chmod +x hello_world.py'</span> <span class="o">%</span> <span class="p">(</span><span class="n">pkg_path</span><span class="p">,</span> <span class="n">pkg_checksum</span><span class="p">))</span>
 
-<span style="color: #999988;font-style: italic"># run the script</span>
-<span style="background-color: #f8f8f8">hello_world</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">Process</span><span style="background-color: #f8f8f8">(</span>
-  <span style="background-color: #f8f8f8">name</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'hello_world'</span><span style="background-color: #f8f8f8">,</span>
-  <span style="background-color: #f8f8f8">cmdline</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'python hello_world.py'</span><span style="background-color: #f8f8f8">)</span>
+<span class="c"># run the script</span>
+<span class="n">hello_world</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">'hello_world'</span><span class="p">,</span>
+  <span class="n">cmdline</span> <span class="o">=</span> <span class="s">'python hello_world.py'</span><span class="p">)</span>
 
-<span style="color: #999988;font-style: italic"># describe the task</span>
-<span style="background-color: #f8f8f8">hello_world_task</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">SequentialTask</span><span style="background-color: #f8f8f8">(</span>
-  <span style="background-color: #f8f8f8">processes</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[</span><span style="background-color: #f8f8f8">install</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">hello_world</span><span style="background-color: #f8f8f8">],</span>
-  <span style="background-color: #f8f8f8">resources</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">Resources</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">cpu</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #009999">1</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">ram</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #009999">1</span><span style="color: #000000;font-weight: bold">*</span><span style="background-color: #f8f8f8">MB</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">disk</span><span style="color: #000000;font-weight: bold">=</span><span style="color: #009999">8</span><span style="color: #000000;font-weight: bold">*</span><span style="background-color: #f8f8f8">MB</span><span style="background-color: #f8f8f8">))</span>
+<span class="c"># describe the task</span>
+<span class="n">hello_world_task</span> <span class="o">=</span> <span class="n">SequentialTask</span><span class="p">(</span>
+  <span class="n">processes</span> <span class="o">=</span> <span class="p">[</span><span class="n">install</span><span class="p">,</span> <span class="n">hello_world</span><span class="p">],</span>
+  <span class="n">resources</span> <span class="o">=</span> <span class="n">Resources</span><span class="p">(</span><span class="n">cpu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ram</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">MB</span><span class="p">,</span> <span class="n">disk</span><span class="o">=</span><span class="mi">8</span><span class="o">*</span><span class="n">MB</span><span class="p">))</span>
 
-<span style="background-color: #f8f8f8">jobs</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[</span>
-  <span style="background-color: #f8f8f8">Service</span><span style="background-color: #f8f8f8">(</span><span style="background-color: #f8f8f8">cluster</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'devcluster'</span><span style="background-color: #f8f8f8">,</span>
-          <span style="background-color: #f8f8f8">environment</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'devel'</span><span style="background-color: #f8f8f8">,</span>
-          <span style="background-color: #f8f8f8">role</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'www-data'</span><span style="background-color: #f8f8f8">,</span>
-          <span style="background-color: #f8f8f8">name</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">'hello_world'</span><span style="background-color: #f8f8f8">,</span>
-          <span style="background-color: #f8f8f8">task</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">hello_world_task</span><span style="background-color: #f8f8f8">)</span>
-<span style="background-color: #f8f8f8">]</span>
+<span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="n">Service</span><span class="p">(</span><span class="n">cluster</span> <span class="o">=</span> <span class="s">'devcluster'</span><span class="p">,</span>
+          <span class="n">environment</span> <span class="o">=</span> <span class="s">'devel'</span><span class="p">,</span>
+          <span class="n">role</span> <span class="o">=</span> <span class="s">'www-data'</span><span class="p">,</span>
+          <span class="n">name</span> <span class="o">=</span> <span class="s">'hello_world'</span><span class="p">,</span>
+          <span class="n">task</span> <span class="o">=</span> <span class="n">hello_world_task</span><span class="p">)</span>
+<span class="p">]</span>
 </code></pre>
 
 <p>For more about Aurora configuration files, see the <a href="/documentation/0.11.0/configuration-tutorial/">Configuration
@@ -277,12 +190,12 @@ do:</p>
 </code></pre>
 
 <p>You&rsquo;ll see something like:</p>
-<pre class="highlight javascript"><code><span style="background-color: #f8f8f8">[{</span>
-  <span style="color: #d14">"name"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"devcluster"</span><span style="background-color: #f8f8f8">,</span>
-  <span style="color: #d14">"zk"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"192.168.33.7"</span><span style="background-color: #f8f8f8">,</span>
-  <span style="color: #d14">"scheduler_zk_path"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"/aurora/scheduler"</span><span style="background-color: #f8f8f8">,</span>
-  <span style="color: #d14">"auth_mechanism"</span><span style="background-color: #f8f8f8">:</span> <span style="color: #d14">"UNAUTHENTICATED"</span>
-<span style="background-color: #f8f8f8">}]</span>
+<pre class="highlight javascript"><code><span class="p">[{</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"devcluster"</span><span class="p">,</span>
+  <span class="s2">"zk"</span><span class="p">:</span> <span class="s2">"192.168.33.7"</span><span class="p">,</span>
+  <span class="s2">"scheduler_zk_path"</span><span class="p">:</span> <span class="s2">"/aurora/scheduler"</span><span class="p">,</span>
+  <span class="s2">"auth_mechanism"</span><span class="p">:</span> <span class="s2">"UNAUTHENTICATED"</span>
+<span class="p">}]</span>
 </code></pre>
 
 <p>Use a <code>name</code> value for your job key&rsquo;s cluster value.</p>
@@ -392,8 +305,6 @@ Thermos work &ldquo;under the hood&rdquo;.</li>
 <a href="/documentation/0.11.0/client-commands/">Aurora Client Commands</a> document.</li>
 </ul>
 
-</div>
-
       </div>
     </div>
   	<div class="container-fluid section-footer buffer">
@@ -402,21 +313,12 @@ Thermos work &ldquo;under the hood&rdquo;.</li>
 		  <div class="col-md-2 col-md-offset-1"><h3>Quick Links</h3>
 		  <ul>
 		    <li><a href="/downloads/">Downloads</a></li>
-            <li><a href="/community/">Mailing Lists</a></li>
-			<li><a href="http://issues.apache.org/jira/browse/AURORA">Issue Tracking</a></li>
+			<li><a href="https://github.com/aurora-scheduler/aurora/issues">Issue Tracking</a></li>
 			<li><a href="/documentation/latest/contributing/">How To Contribute</a></li>     
 		  </ul>
 	      </div>
-		  <div class="col-md-2"><h3>The ASF</h3>
-          <ul>
-            <li><a href="http://www.apache.org/licenses/">License</a></li>
-            <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>  
-            <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            <li><a href="http://www.apache.org/security/">Security</a></li>
-          </ul>
-		  </div>
 		  <div class="col-md-6">
-			<p class="disclaimer">&copy; 2014-2017 <a href="http://www.apache.org/">Apache Software Foundation</a>. Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>. Apache, Apache Aurora, and the Apache feather logo are trademarks of The Apache Software Foundation.</p>
+			<p class="disclaimer">Licensed under the <a href="http://www.apache.org/licenses/">Apache License v2.0</a>. The <a href="https://www.flickr.com/photos/trondk/12706051375/">Aurora Borealis IX photo</a> displayed on the homepage is available under a <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons BY-NC-ND 2.0 license</a>.</p>
         </div>
       </div>
     </div>
